@@ -1,43 +1,43 @@
-# Proyek Akhir: Menyelesaikan Permasalahan Perusahaan Edutech
+# Solving Challenges for an Edutech Company
 
 ## Business Understanding
 
-Perusahaan Edutech Jaya Jaya Maju menghadapi tantangan dalam mempertahankan karyawannya, dengan tingkat **attrition** (pengunduran diri karyawan) yang perlu dipahami dan dikelola. Tingkat attrition yang tinggi dapat berdampak signifikan pada biaya rekrutmen, produktivitas, dan moral karyawan secara keseluruhan. Berdasarkan data awal, sekitar **16.92%** karyawan mengalami attrition, yang menjadi fokus utama analisis ini. Manajemen Sumber Daya Manusia (SDM) di Edutech perlu memahami faktor-faktor pendorong attrition untuk merancang strategi retensi yang efektif dan menciptakan lingkungan kerja yang lebih baik.
+The Edutech company, Jaya Jaya Maju, faces a challenge in retaining its employees, with an employee **attrition** rate that needs to be understood and managed. A high attrition rate can have a significant impact on recruitment costs, productivity, and overall employee morale. Based on initial data, approximately **16.92%** of employees have experienced attrition, which is the main focus of this analysis. The Human Resources (HR) management at the Edutech company needs to understand the driving factors of attrition to design effective retention strategies and create a better work environment.
 
-### Permasalahan Bisnis
+### Business Problems
 
-Permasalahan bisnis yang ingin diselesaikan melalui proyek ini adalah:
-1.  Mengidentifikasi faktor-faktor demografis, pekerjaan, dan perilaku utama yang paling berpengaruh terhadap keputusan karyawan untuk keluar dari Edutech.
-2.  Membangun model prediktif yang dapat mengidentifikasi karyawan dengan risiko attrition tinggi.
-3.  Menyediakan dasar untuk pembuatan alat bantu (dashboard) bagi tim SDM untuk memantau tren attrition dan faktor risiko secara berkelanjutan, yang akan membantu dalam:
-    *   Menurunkan tingkat attrition secara proaktif.
-    *   Mengoptimalkan biaya terkait rekrutmen dan kehilangan talenta.
-    *   Meningkatkan kepuasan dan loyalitas karyawan.
+The business problems to be solved through this project are:
+1.  Identifying the key demographic, job-related, and behavioral factors that most influence an employee's decision to leave the company.
+2.  Building a predictive model that can identify employees at high risk of attrition.
+3.  Providing a basis for a dashboard tool for the HR team to continuously monitor attrition trends and risk factors, which will help in:
+    *   Proactively reducing the attrition rate.
+    *   Optimizing costs related to recruitment and talent loss.
+    *   Improving employee satisfaction and loyalty.
 
-### Cakupan Proyek
+### Project Scope
 
-Proyek ini mencakup langkah-langkah berikut:
-1.  **Eksplorasi Data Awal (EDA)**: Memahami dataset `employee_data.csv`, distribusi variabel, dan pola awal terkait attrition.
-2.  **Persiapan Data**: Membersihkan data (menangani nilai yang hilang, outlier jika relevan), melakukan encoding pada fitur kategorikal, dan penskalaan fitur numerik.
-3.  **Analisis Faktor Penyebab Attrition**: Menggunakan analisis statistik (Cramér's V) dan *feature importance* dari model machine learning untuk mengidentifikasi prediktor kunci.
-4.  **Pemodelan Prediktif**: Membangun dan mengevaluasi beberapa model klasifikasi, dengan fokus pada `ExtraTreesClassifier` yang dioptimasi menggunakan Optuna, untuk memprediksi attrition.
-5.  **Persiapan Output untuk Dashboard**: Mengekspor hasil prediksi dan data relevan ke format CSV dan database SQLite untuk visualisasi lebih lanjut.
-6.  **Kesimpulan dan Rekomendasi**: Merangkum temuan dan memberikan rekomendasi strategis kepada manajemen Edutech.
+This project includes the following steps:
+1.  **Exploratory Data Analysis (EDA)**: Understanding the `employee_data.csv` dataset, variable distributions, and initial patterns related to attrition.
+2.  **Data Preparation**: Cleaning the data (handling missing values, outliers if relevant), encoding categorical features, and scaling numerical features.
+3.  **Analysis of Attrition Factors**: Using statistical analysis (Cramér's V) and feature importance from machine learning models to identify key predictors.
+4.  **Predictive Modeling**: Building and evaluating several classification models, with a focus on an `ExtraTreesClassifier` optimized using Optuna to predict attrition.
+5.  **Preparing Output for Dashboard**: Exporting prediction results and relevant data to CSV and SQLite database formats for further visualization.
+6.  **Conclusion and Recommendations**: Summarizing findings and providing strategic recommendations to the Edutech management.
 
-### Persiapan
+### Preparation
 
-**Sumber data**: Dataset yang digunakan adalah `employee_data.csv` yang disediakan oleh Dicoding, berisi informasi demografis, pekerjaan, dan kepuasan karyawan. Tautan: [https://raw.githubusercontent.com/dicodingacademy/dicoding_dataset/refs/heads/main/employee/employee_data.csv](https://raw.githubusercontent.com/dicodingacademy/dicoding_dataset/refs/heads/main/employee/employee_data.csv)
+**Data Source**: The dataset used is `employee_data.csv` provided by Dicoding, containing demographic, job, and employee satisfaction information. Link: [https://raw.githubusercontent.com/dicodingacademy/dicoding_dataset/refs/heads/main/employee/employee_data.csv](https://raw.githubusercontent.com/dicodingacademy/dicoding_dataset/refs/heads/main/employee/employee_data.csv)
 
-**Setup environment**:
-Proyek ini dikerjakan menggunakan Python dalam lingkungan Jupyter Notebook.
-1.  **Menjalankan `notebook.ipynb`**:
-    *   Pastikan semua dependensi dan library yang tercantum dalam file `requirements.txt` telah terinstal di environment Anda. File ini dapat dibuat dengan menjalankan `pip freeze > requirements.txt` di akhir notebook.
-    *   Jalankan sel-sel dalam notebook secara berurutan untuk mereplikasi analisis, pemodelan, dan hasil yang diperoleh. Ini akan menghasilkan file database SQLite di direktori `model/metabase.db`.
-2.  **Menjalankan Dashboard (menggunakan Metabase dengan Docker)**:
-    Data hasil prediksi dan analisis fitur disimpan dalam database SQLite (`model/metabase.db`) yang dapat dihubungkan ke Metabase.
-    *   Pastikan Docker sudah terinstal di sistem Anda.
-    *   Tarik image Metabase (jika belum ada): `docker pull metabase/metabase:latest` (atau versi spesifik yang Anda gunakan, misal v0.46.4).
-    *   Jalankan container Metabase dengan perintah berikut dari direktori utama proyek Anda (yang berisi folder `model`):
+**Environment Setup**:
+This project was developed using Python in a Jupyter Notebook environment.
+1.  **Running `notebook.ipynb`**:
+    *   Ensure all dependencies and libraries listed in the `requirements.txt` file are installed in your environment. This file can be created by running `pip freeze > requirements.txt` at the end of the notebook.
+    *   Run the cells in the notebook sequentially to replicate the analysis, modeling, and results. This will generate an SQLite database file in the `model/metabase.db` directory.
+2.  **Running the Dashboard (using Metabase with Docker)**:
+    The prediction results and feature analysis are stored in an SQLite database (`model/metabase.db`) that can be connected to Metabase.
+    *   Ensure Docker is installed on your system.
+    *   Pull the Metabase image (if you don't have it): `docker pull metabase/metabase:latest` (or a specific version you use, e.g., v0.46.4).
+    *   Run the Metabase container with the following command from your main project directory (the one containing the `model` folder):
         ```bash
         docker run -d \
           --name dashboard_employee \
@@ -45,66 +45,76 @@ Proyek ini dikerjakan menggunakan Python dalam lingkungan Jupyter Notebook.
           -v ${PWD}/model:/metabase-data \
           metabase/metabase
         ```
-        *   **Penjelasan Perintah:**
-            *   `-d`: Menjalankan container di background (detached mode).
-            *   `--name dashboard_employee`: Memberi nama pada container.
-            *   `-p 3000:3000`: Memetakan port 3000 di host ke port 3000 di container.
-            *   `-v ${PWD}/model:/metabase-data`: Ini adalah bagian penting. Perintah ini me-mount direktori `model` dari direktori kerja Anda saat ini (`${PWD}/model`) ke direktori `/metabase-data` di dalam container Metabase. File `metabase.db` Anda yang ada di `model/metabase.db` akan dapat diakses dari dalam container melalui path `/metabase-data/metabase.db`.
-    *   Akses Metabase melalui browser di `http://localhost:3000`.
-    *   Saat pertama kali setup Metabase (atau jika menambahkan database baru):
-        1.  Pilih "Let's get set up".
-        2.  Isi informasi pengguna admin.
-        3.  Pada bagian "Add your data", pilih "I'll add my data later" atau jika langsung menambahkan:
-            *   Pilih Database type: **SQLite**.
-            *   Display name: (misalnya) `Employee Attrition DB`
-            *   Filename: `/metabase-data/metabase.db` (Ini adalah path ke file SQLite Anda *di dalam container Docker*, sesuai dengan volume mapping di atas).
-    *   Buat pertanyaan dan dashboard di Metabase menggunakan tabel `employee_predictions`, `feature_importance`, dan `employee_data` (cleaned) dari database yang baru saja Anda hubungkan.
+        *   **Command Explanation:**
+            *   `-d`: Runs the container in the background (detached mode).
+            *   `--name dashboard_employee`: Gives the container a name.
+            *   `-p 3000:3000`: Maps port 3000 on the host to port 3000 in the container.
+            *   `-v ${PWD}/model:/metabase-data`: This is the important part. This command mounts the `model` directory from your current working directory (`${PWD}/model`) to the `/metabase-data` directory inside the Metabase container. Your `metabase.db` file, located at `model/metabase.db`, will be accessible from inside the container via the path `/metabase-data/metabase.db`.
+    *   Access Metabase through your browser at `http://localhost:3000`.
+    *   During the initial Metabase setup (or when adding a new database):
+        1.  Select "Let's get set up."
+        2.  Fill in the admin user information.
+        3.  In the "Add your data" section, you can select "I'll add my data later" or add it immediately:
+            *   Select Database type: **SQLite**.
+            *   Display name: (e.g.) `Employee Attrition DB`
+            *   Filename: `/metabase-data/metabase.db` (This is the path to your SQLite file *inside the Docker container*, according to the volume mapping above).
+    *   Create questions and dashboards in Metabase using the `employee_predictions`, `feature_importance`, and `employee_data` (cleaned) tables from the database you just connected.
 
 ---
 
 ## Business Dashboard
 
-Dashboard interaktif yang dibangun di Metabase akan membantu tim SDM Edutech untuk:
-1.  **Memantau Tingkat Attrition**: Melihat proporsi karyawan yang diprediksi akan attrition dan perbandingannya dengan data aktual (jika tersedia secara periodik).
-2.  **Menganalisis Faktor Risiko Utama**:
-    *   Visualisasi *feature importance* yang menunjukkan faktor-faktor seperti `OverTime`, `MaritalStatus`, dan `TotalWorkingYears` sebagai pendorong utama.
-    *   Distribusi karyawan berisiko tinggi berdasarkan karakteristik kunci.
-3.  **Identifikasi Segmen Karyawan Berisiko**: Memfilter dan melihat detail karyawan yang diprediksi memiliki probabilitas attrition tinggi.
+The interactive dashboard built in Metabase will help the Edutech HR team to:
+1.  **Monitor Attrition Rates**: View the proportion of employees predicted to attrite and compare it with actual data (if available periodically).
+2.  **Analyze Key Risk Factors**:
+    *   Visualize feature importance, showing factors like `OverTime`, `MaritalStatus`, and `TotalWorkingYears` as the main drivers.
+    *   See the distribution of high-risk employees based on key characteristics.
+3.  **Identify At-Risk Employee Segments**: Filter and view details of employees predicted to have a high probability of attrition.
 
-Untuk mengakses dashboard (setelah setup lokal seperti panduan di atas):
-*   **Link Akses Lokal (Metabase via Docker):** `http://localhost:3000`
-    *   Setelah login dan menghubungkan database SQLite (`model/metabase.db` yang diakses sebagai `/metabase-data/metabase.db` di dalam Metabase), navigasi ke koleksi atau dashboard yang telah dibuat untuk analisis attrition karyawan Edutech.
+To access the dashboard (after local setup as guided above):
+*   **Local Access Link (Metabase via Docker):** `http://localhost:3000`
+    *   After logging in and connecting the SQLite database (`model/metabase.db`, accessed as `/metabase-data/metabase.db` within Metabase), navigate to the collection or dashboard created for the Edutech employee attrition analysis.
 
 ---
 
 ## Conclusion
 
-Jelaskan konklusi dari proyek yang dikerjakan.
-Proyek ini berhasil mengidentifikasi faktor-faktor signifikan yang memengaruhi attrition di Edutech dan membangun model `ExtraTreesClassifier` untuk memprediksi karyawan yang berisiko keluar.
+This project successfully identified the significant factors influencing attrition at the Edutech company and built an `ExtraTreesClassifier` model to predict employees at risk of leaving.
 
-**Faktor-Faktor Utama Penyebab Attrition:**
-Berdasarkan analisis *feature importance* dari model `ExtraTreesClassifier`:
-1.  **`OverTime`**: Menjadi prediktor terkuat (skor ~0.42), menunjukkan bahwa karyawan yang sering bekerja lembur memiliki risiko attrition yang sangat tinggi.
-2.  **`MaritalStatus`**: Status pernikahan merupakan prediktor signifikan kedua (skor ~0.20). Analisis lebih lanjut dari data sebelumnya menunjukkan status 'Single' memiliki proporsi attrition tertinggi.
-3.  **`TotalWorkingYears`**: Total masa kerja karyawan secara keseluruhan juga menunjukkan kontribusi penting terhadap prediksi (skor ~0.09).
-4.  Fitur lain seperti **`MonthlyIncome`** (skor ~0.06) dan **`Age`** (skor ~0.06) juga berkontribusi secara moderat.
+**Key Factors Causing Attrition:**
+Based on the feature importance analysis from the `ExtraTreesClassifier` model:
+1.  **`OverTime`**: This is the strongest predictor (score ~0.42), indicating that employees who frequently work overtime have a very high risk of attrition.
+2.  **`MaritalStatus`**: Marital status is the second most significant predictor (score ~0.20). Further analysis from previous data showed that 'Single' status has the highest proportion of attrition.
+3.  **`TotalWorkingYears`**: The employee's total working years also shows a significant contribution to the prediction (score ~0.09).
+4.  Other features such as **`MonthlyIncome`** (score ~0.06) and **`Age`** (score ~0.06) also contribute moderately.
 
-**Model Prediktif Terbaik (`ExtraTreesClassifier`):**
-Model `ExtraTreesClassifier`, setelah optimasi hyperparameter menggunakan Optuna (dengan parameter terbaik: `{'n_estimators': 215, 'max_depth': 11, 'min_samples_split': 0.13399970021595703, 'min_samples_leaf': 0.04206053437992983}`), menunjukkan performa berikut pada data uji:
+**Best Predictive Model (`ExtraTreesClassifier`):**
+The `ExtraTreesClassifier` model, after hyperparameter optimization using Optuna (with best parameters: `{'n_estimators': 215, 'max_depth': 11, 'min_samples_split': 0.13399970021595703, 'min_samples_leaf': 0.04206053437992983}`), showed the following performance on the test data:
 *   **Accuracy**: 74.06%
-*   **Recall (untuk Attrition=Yes)**: 0.61 (Model berhasil mengidentifikasi 61% dari karyawan yang sebenarnya attrition)
-*   **F1-Score (untuk Attrition=Yes)**: 0.44
-*   **Precision (untuk Attrition=Yes)**: 0.35
-*   **Confusion Matrix**: Model mengidentifikasi 22 True Positives dan 135 True Negatives, dengan 14 False Negatives dan 41 False Positives. Fokus pada recall (0.61) penting untuk meminimalkan risiko kehilangan karyawan potensial, meskipun presisi (0.35) menunjukkan adanya prediksi positif yang salah.
+*   **Recall (for Attrition=Yes)**: 0.61 (The model successfully identified 61% of the employees who actually attrited)
+*   **F1-Score (for Attrition=Yes)**: 0.44
+*   **Precision (for Attrition=Yes)**: 0.35
+*   **Confusion Matrix**: The model identified 22 True Positives and 135 True Negatives, with 14 False Negatives and 41 False Positives. The focus on recall (0.61) is important to minimize the risk of losing potential employees, although the precision (0.35) indicates some false positive predictions.
 
-### Rekomendasi Action Items (Optional)
+### Recommended Action Items (Optional)
 
-Berikan beberapa rekomendasi action items yang harus dilakukan perusahaan guna menyelesaikan permasalahan atau mencapai target mereka.
-- **Prioritaskan Manajemen `OverTime`**:
-    Mengingat `OverTime` adalah faktor dominan, evaluasi kebijakan dan budaya lembur secara mendalam. Identifikasi penyebab lembur berlebihan (beban kerja, efisiensi, kekurangan staf) dan cari solusi untuk menguranginya. Perhatikan bahwa simulasi pengurangan lembur (dari analisis sebelumnya) dapat meningkatkan akurasi keseluruhan tetapi menurunkan kemampuan deteksi kasus attrition sebenarnya (Recall). Strategi pengurangan harus cermat.
-- **Fokus pada `MaritalStatus`**:
-    Selidiki lebih lanjut mengapa karyawan dengan status pernikahan tertentu (misalnya, 'Single') lebih rentan attrition. Pertimbangkan program dukungan, tunjangan, atau fleksibilitas kerja yang mungkin relevan untuk segmen ini.
-- **Analisis Mendalam Faktor `TotalWorkingYears`, `MonthlyIncome`, dan `Age`**:
-    Pahami bagaimana kombinasi total masa kerja, tingkat pendapatan, dan usia berkontribusi terhadap risiko *attrition*. Karyawan dengan masa kerja total lebih sedikit mungkin membutuhkan program mentoring dan pengembangan karir yang lebih intensif. Kaji ulang struktur kompensasi untuk `MonthlyIncome` pada berbagai level pengalaman dan usia.
-- **Pemanfaatan Model Prediktif secara Berkelanjutan**:
-    Implementasikan model `ExtraTreesClassifier` sebagai bagian dari sistem HR untuk identifikasi proaktif karyawan yang berisiko tinggi melakukan *attrition*. Ini memungkinkan intervensi retensi yang lebih dini dan tertarget. Gunakan dashboard yang terhubung ke hasil prediksi untuk pemantauan berkelanjutan oleh tim SDM.
+- **Prioritize `OverTime` Management**:
+    Given that `OverTime` is the dominant factor, conduct a deep evaluation of overtime policies and culture. Identify the causes of excessive overtime (workload, inefficiency, understaffing) and find solutions to reduce it. Note that simulating a reduction in overtime (from previous analysis) could increase overall accuracy but decrease the ability to detect actual attrition cases (Recall). Reduction strategies must be carefully planned.
+- **Focus on `MaritalStatus`**:
+    Investigate further why employees with a certain marital status (e.g., 'Single') are more prone to attrition. Consider support programs, benefits, or work flexibility that may be relevant for this segment.
+- **In-depth Analysis of `TotalWorkingYears`, `MonthlyIncome`, and `Age` Factors**:
+    Understand how the combination of total working years, income level, and age contributes to attrition risk. Employees with fewer total working years may need more intensive mentoring and career development programs. Review the compensation structure for `MonthlyIncome` at various experience and age levels.
+- **Continuous Utilization of the Predictive Model**:
+    Implement the `ExtraTreesClassifier` model as part of the HR system for proactive identification of high-risk employees. This allows for earlier and more targeted retention interventions. Use the dashboard connected to the prediction results for continuous monitoring by the HR team.
+
+---
+
+## Authors
+-   [I  Dewa Gede Mahesta Parawangsa] - [dewamahesta2711@gmail.com]
+
+## Version History
+*   **0.1**
+    *   Initial Release: Includes data analysis, feature engineering, predictive modeling with `ExtraTreesClassifier`, and preparation for dashboard integration.
+
+## License
+This project is licensed under the MIT License - see the LICENSE.md file for details.
